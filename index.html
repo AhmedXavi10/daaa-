@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nour 💕</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B0000, #C41E3A, #FF1493, #8B1538);
+    overflow: hidden;
+}
+
+/* 💕 HEART BACKGROUND LAYER */
+#hearts {
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10vh;
+    opacity: 0.7;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-120vh) scale(1.3);
+        opacity: 0.8;
+    }
+}
+
+/* SCREENS */
+.screen {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    text-align: center;
+    padding: 40px;
+    z-index: 5; /* above hearts */
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* 💌 ENVELOPE */
+.envelope {
+    font-size: 150px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* LETTER */
+.letter {
+    max-width: 900px;
+}
+
+.letter h1 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.letter p {
+    font-size: 1.3em;
+    line-height: 2;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* BUTTON */
+button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 40px;
+    background: #ff1493;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background: #c71585;
+}
+
+/* FINAL */
+.final h1 {
+    font-size: 3.5em;
+    color: #ffffff;
+    animation: lovePulse 1.2s infinite;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+}
+
+@keyframes lovePulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.photo {
+    margin-top: 30px;
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+#countdown {
+    font-size: 4em;
+    color: #ffffff;
+    margin: 20px 0;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+    animation: countdownPulse 0.6s ease-out;
+}
+
+@keyframes countdownPulse {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💕 HEARTS BACKGROUND -->
+<div id="hearts"></div>
+
+<script>
+// Create initial hearts
+for (let i = 0; i < 50; i++) {
+    createHeart();
+}
+
+// Continuously create new hearts
+setInterval(createHeart, 300);
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = Math.random() > 0.5 ? "💕" : "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 15 + Math.random() * 35 + "px";
+    heart.style.animationDuration = 4 + Math.random() * 6 + "s";
+    heart.style.animationDelay = "0s";
+    document.getElementById("hearts").appendChild(heart);
+    
+    // Remove heart after animation ends
+    setTimeout(() => heart.remove(), 10000);
+}
+</script>
+
+<!-- SCREEN 1 -->
+<div id="s1" class="screen active">
+    <div>
+        <div class="envelope" onclick="openLetter()">💌</div>
+        <p>Tap the envelope</p>
+    </div>
+</div>
+
+<!-- SCREEN 2 -->
+<div id="s2" class="screen">
+    <div class="letter">
+        <h1> el nour 3youni  💕</h1>
+        <p>
+            haw 9alk 3id hob ad w njm no93d eni ma namlch haja el benti ama lezmha tkoun haja special al 
+            ay had e5r donc naml el benti cite heda shih ana d5l fi hit ama ma yamn3ch eni ma namlkch haja 
+            w allh 8alb b3ad chwaya ama mislch a9l haja namlk heda chy .
+            <br><br>
+            ya nour 3youni .
+        </p>        <p style="direction: rtl; text-align: right;">
+           nour habit n9olk rani nhbk eli 5aleni no93d n5dm fi cite heda bel ro8m mel t3b eli fiya w smhni kan 
+           9sart fi haja maak ruhy w  beli bech ysir bech no93d nhbk ruhy 
+            <br><br>
+            no93d nhbk beli bech ysir nawara . 💕
+            <br>
+            9oli ad thebni ?,. 💕
+        </p>        <button onclick="sayYes()">Yes 💖</button>
+    </div>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="s3" class="screen final">
+    <div>
+        <h1>hata eni nmout alik habibi   ❤️</h1>
+        <img src="46dd1546-9b62-40c7-96ac-47dfea509162.jfif" class="photo">
+        <button onclick="showMsg()">Open 💌</button>
+        <div id="countdown" style="display: none;"></div>
+        <p id="finalMsg" style="display: none; margin-top: 30px; font-size: 1.8em; color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
+             Ya Kaboula . 💕
+        </p>
+    </div>
+</div>
+
+<script>
+function openLetter() {
+    s1.classList.remove("active");
+    s2.classList.add("active");
+}
+
+function sayYes() {
+    s2.classList.remove("active");
+    s3.classList.add("active");
+}
+
+function showMsg() {
+    const countdown = document.getElementById("countdown");
+    const finalMsg = document.getElementById("finalMsg");
+    
+    if (finalMsg.style.display === "none") {
+        countdown.style.display = "block";
+        finalMsg.style.display = "none";
+        
+        let count = 3;
+        countdown.textContent = count;
+        
+        const interval = setInterval(() => {
+            count--;
+            if (count > 0) {
+                countdown.textContent = count;
+            } else {
+                clearInterval(interval);
+                countdown.style.display = "none";
+                finalMsg.style.display = "block";
+            }
+        }, 600);
+    } else {
+        finalMsg.style.display = "none";
+        countdown.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
